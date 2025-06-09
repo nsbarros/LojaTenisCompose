@@ -4,11 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.LojaTenisComposeTheme
-import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.HomeScreen
+import br.com.nsbarros.android.compose.lojateniscompose.ui.navigation.AppNavHost
 import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.viewmodel.HomeViewModel
+import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.LojaTenisComposeTheme
 import org.koin.androidx.compose.koinViewModel
 
 
@@ -18,13 +16,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             LojaTenisComposeTheme {
-                val viewModel: HomeViewModel = koinViewModel()
-                val state by viewModel.state.collectAsState()
 
-                HomeScreen(
-                    state = state,
-                    onEvent = viewModel::onEvent
-                )
+                val homeViewModel: HomeViewModel = koinViewModel()
+
+                AppNavHost(viewModel = homeViewModel)
             }
         }
     }
