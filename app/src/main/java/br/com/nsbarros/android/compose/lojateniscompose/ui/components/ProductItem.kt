@@ -1,6 +1,5 @@
-package br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.components
+package br.com.nsbarros.android.compose.lojateniscompose.ui.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -15,8 +14,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import br.com.nsbarros.android.compose.lojateniscompose.domain.model.Product
 import coil.compose.AsyncImage
-import coil.compose.AsyncImagePainter.State.Empty
-import coil.compose.rememberAsyncImagePainter
 
 @Composable
 fun ProductItem(

@@ -1,9 +1,9 @@
-package br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.components.previews
+package br.com.nsbarros.android.compose.lojateniscompose.ui.components.previews
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.LojaTenisComposeTheme
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.components.CategoryChips
+import br.com.nsbarros.android.compose.lojateniscompose.ui.components.CategoryChips
 
 @Preview(showBackground = true)
 @Composable

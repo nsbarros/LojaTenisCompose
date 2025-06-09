@@ -1,4 +1,4 @@
-package br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.components
+package br.com.nsbarros.android.compose.lojateniscompose.ui.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons

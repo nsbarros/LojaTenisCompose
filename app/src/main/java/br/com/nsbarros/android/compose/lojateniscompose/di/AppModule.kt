@@ -5,7 +5,7 @@ import br.com.nsbarros.android.compose.lojateniscompose.domain.repository.Produc
 import br.com.nsbarros.android.compose.lojateniscompose.domain.usecase.GetProductsByCategoryUseCase
 import br.com.nsbarros.android.compose.lojateniscompose.domain.usecase.GetProductsUseCase
 import br.com.nsbarros.android.compose.lojateniscompose.domain.usecase.SearchProductsUseCase
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.viewmodel.HomeViewModel
+import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.viewmodel.HomeViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 

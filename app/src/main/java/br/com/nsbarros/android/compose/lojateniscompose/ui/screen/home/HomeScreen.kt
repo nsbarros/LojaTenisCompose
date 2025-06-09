@@ -1,4 +1,4 @@
-package br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.screen
+package br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,11 +11,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import br.com.nsbarros.android.compose.lojateniscompose.domain.model.Product
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.components.CategoryChips
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.components.ProductItem
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.components.SearchBar
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.state.HomeEvent
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.state.HomeState
+import br.com.nsbarros.android.compose.lojateniscompose.ui.components.CategoryChips
+import br.com.nsbarros.android.compose.lojateniscompose.ui.components.ProductItem
+import br.com.nsbarros.android.compose.lojateniscompose.ui.components.SearchBar
+import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state.HomeEvent
+import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state.HomeState
 
 @Composable
 fun HomeScreen(

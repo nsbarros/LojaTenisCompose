@@ -7,8 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.LojaTenisComposeTheme
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.screen.HomeScreen
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.viewmodel.HomeViewModel
+import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.HomeScreen
+import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.viewmodel.HomeViewModel
 import org.koin.androidx.compose.koinViewModel
 
 

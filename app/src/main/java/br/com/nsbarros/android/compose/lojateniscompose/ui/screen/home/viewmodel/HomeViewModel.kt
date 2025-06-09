@@ -1,13 +1,13 @@
-package br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.viewmodel
+package br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.nsbarros.android.compose.lojateniscompose.domain.usecase.GetProductsByCategoryUseCase
 import br.com.nsbarros.android.compose.lojateniscompose.domain.usecase.GetProductsUseCase
 import br.com.nsbarros.android.compose.lojateniscompose.domain.usecase.SearchProductsUseCase
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.state.HomeEffect
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.state.HomeEvent
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.home.state.HomeState
+import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state.HomeEffect
+import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state.HomeEvent
+import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state.HomeState
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
