@@ -1,18 +1,23 @@
 package br.com.nsbarros.android.compose.lojateniscompose.ui.screen.productdetail
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material3.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
 import br.com.nsbarros.android.compose.lojateniscompose.domain.model.Product
-import androidx.compose.material3.TopAppBar
+import coil3.compose.AsyncImage
+
 
 @Composable
 fun ProductDetailScreen(
@@ -20,20 +25,7 @@ fun ProductDetailScreen(
     onBack: () -> Unit
 ) {
     Scaffold(
-        /*topBar = {
-            SmallTopAppBar(
-                title = { Text(text = product.name) },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(
-                            imageVector = Icons.Default.ArrowBack,
-                            contentDescription = "Voltar"
-                        )
-                    }
-                },
-                scrollBehavior = null // 👈 isso remove o erro
-            )
-        }*/
+
     ) { padding ->
         Column(
             modifier = Modifier

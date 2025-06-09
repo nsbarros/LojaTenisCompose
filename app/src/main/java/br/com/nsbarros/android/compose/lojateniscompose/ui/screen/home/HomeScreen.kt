@@ -1,19 +1,20 @@
 package br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import br.com.nsbarros.android.compose.lojateniscompose.domain.model.Product
+import androidx.compose.ui.unit.sp
 import br.com.nsbarros.android.compose.lojateniscompose.ui.components.CategoryChips
-import br.com.nsbarros.android.compose.lojateniscompose.ui.components.ProductItem
-import br.com.nsbarros.android.compose.lojateniscompose.ui.components.SearchBar
+import br.com.nsbarros.android.compose.lojateniscompose.ui.components.ProductGrid
+import br.com.nsbarros.android.compose.lojateniscompose.ui.components.ProductSearchBar
 import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state.HomeEvent
 import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state.HomeState
 
@@ -22,36 +23,67 @@ fun HomeScreen(
     state: HomeState,
     onEvent: (HomeEvent) -> Unit
 ) {
-    Column(modifier = Modifier.fillMaxSize()) {
-
-        Text(
-            text = "Olá, ${state.userName}",
-            style = MaterialTheme.typography.headlineSmall,
-            modifier = Modifier.padding(16.dp)
-        )
-
-        SearchBar(
-            query = state.searchQuery,
-            onQueryChanged = { onEvent(HomeEvent.OnSearchChanged(it)) }
-        )
-
-        CategoryChips(
-            categories = state.categories,
-            selectedCategory = state.selectedCategory,
-            onCategorySelected = { onEvent(HomeEvent.OnCategorySelected(it)) }
-        )
-
-        LazyColumn(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(bottom = 8.dp)
-        ) {
-            items(state.products) { product: Product ->
-                ProductItem(
-                    product = product,
-                    onClick = { onEvent(HomeEvent.OnProductClicked(product)) }
+    Scaffold(
+        bottomBar = {
+            NavigationBar {
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.Home, contentDescription = null) },
+                    selected = true,
+                    onClick = {},
+                    label = { Text("Home") }
+                )
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.ShoppingCart, contentDescription = null) },
+                    selected = false,
+                    onClick = {},
+                    label = { Text("Carrinho") }
+                )
+                NavigationBarItem(
+                    icon = { Icon(Icons.Default.Person, contentDescription = null) },
+                    selected = false,
+                    onClick = {},
+                    label = { Text("Perfil") }
                 )
             }
+        }
+    ) { padding ->
+        Column(
+            modifier = Modifier
+                .padding(padding)
+                .fillMaxSize()
+                .background(Color.White)
+                .padding(horizontal = 16.dp)
+        ) {
+            Spacer(modifier = Modifier.height(40.dp))
+
+            Text(
+                text = "Olá, ${state.userName}",
+                fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
+                fontSize = 18.sp,
+                modifier = Modifier.padding(top = 8.dp)
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            ProductSearchBar(
+                query = state.searchQuery,
+                onQueryChanged = { onEvent(HomeEvent.OnSearchChanged(it)) }
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            CategoryChips(
+                categories = state.categories,
+                selectedCategory = state.selectedCategory,
+                onCategorySelected = { onEvent(HomeEvent.OnCategorySelected(it)) }
+            )
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            ProductGrid(
+                products = state.products,
+                onProductClick = { onEvent(HomeEvent.OnProductClicked(it)) }
+            )
         }
     }
 }

@@ -8,7 +8,7 @@ object FakeProductDataSource {
         ProductDto(
             id = "1",
             name = "Tênis Air Zoom",
-            imageUrl = "https://via.placeholder.com/150",
+            imageUrl = "https://imgnike-a.akamaihd.net/360x360/027279IMA8.jpg",
             price = 299.99,
             category = "Tênis",
             description = "Tênis esportivo leve e confortável, ideal para corrida e academia.",
@@ -18,7 +18,7 @@ object FakeProductDataSource {
         ProductDto(
             id = "2",
             name = "Chuteira Pro Max",
-            imageUrl = "https://via.placeholder.com/150",
+            imageUrl = "https://imgnike-a.akamaihd.net/360x360/094381IDA1.jpg",
             price = 199.99,
             category = "Chuteira",
             description = "Chuteira profissional com solado antiderrapante e ótima tração em campo.",
@@ -28,7 +28,7 @@ object FakeProductDataSource {
         ProductDto(
             id = "3",
             name = "Tênis Street Vibe",
-            imageUrl = "https://via.placeholder.com/150",
+            imageUrl = "https://imgnike-a.akamaihd.net/360x360/052505IDA1.jpg",
             price = 249.99,
             category = "Tênis",
             description = "Tênis casual com estilo urbano, ideal para o dia a dia.",
@@ -38,7 +38,7 @@ object FakeProductDataSource {
         ProductDto(
             id = "4",
             name = "Sapatênis Classic Fit",
-            imageUrl = "https://via.placeholder.com/150",
+            imageUrl = "https://imgnike-a.akamaihd.net/360x360/058444IDA1.jpg",
             price = 179.90,
             category = "Sapatênis",
             description = "Sapatênis versátil com design moderno e acabamento premium.",
