@@ -1,4 +1,4 @@
-package br.com.nsbarros.android.compose.lojateniscompose.domain
+package br.com.nsbarros.android.compose.lojateniscompose.domain.model
 
 data class Product(
     val id: String,
