@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import br.com.nsbarros.android.compose.lojateniscompose.ui.components.CategoryChips
@@ -35,7 +36,7 @@ fun HomeScreen(
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.Home, contentDescription = null) },
                     selected = true,
-                    onClick = { /* Navegar */ },
+                    onClick = {  },
                     label = { Text("Home") },
                     colors = NavigationBarItemDefaults.colors(
                         selectedIconColor = Primary,
@@ -85,7 +86,7 @@ fun HomeScreen(
 
             Text(
                 text = "Olá, ${state.userName}",
-                fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
+                fontWeight = FontWeight.Bold,
                 fontSize = 18.sp,
                 modifier = Modifier
                     .padding(top = 8.dp)
@@ -109,10 +110,25 @@ fun HomeScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            ProductGrid(
-                products = state.products,
-                onProductClick = { onEvent(HomeEvent.OnProductClicked(it)) }
-            )
+            if (state.products.isEmpty()) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(top = 64.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = "Nada para exibir em \"${state.selectedCategory}\"",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = Secondary
+                    )
+                }
+            } else {
+                ProductGrid(
+                    products = state.products,
+                    onProductClick = { onEvent(HomeEvent.OnProductClicked(it)) }
+                )
+            }
         }
     }
 }
