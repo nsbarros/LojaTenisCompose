@@ -16,12 +16,11 @@ import androidx.compose.ui.unit.sp
 import br.com.nsbarros.android.compose.lojateniscompose.ui.components.CategoryChips
 import br.com.nsbarros.android.compose.lojateniscompose.ui.components.ProductGrid
 import br.com.nsbarros.android.compose.lojateniscompose.ui.components.ProductSearchBar
-import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state.HomeEvent
+import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.event.HomeEvent
 import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state.HomeState
 import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.BackgroundLight
 import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.Primary
 import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.Secondary
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.WhiteText
 
 @Composable
 fun HomeScreen(

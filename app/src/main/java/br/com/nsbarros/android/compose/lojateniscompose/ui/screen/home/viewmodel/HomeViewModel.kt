@@ -5,8 +5,8 @@ import androidx.lifecycle.viewModelScope
 import br.com.nsbarros.android.compose.lojateniscompose.domain.usecase.GetProductsByCategoryUseCase
 import br.com.nsbarros.android.compose.lojateniscompose.domain.usecase.GetProductsUseCase
 import br.com.nsbarros.android.compose.lojateniscompose.domain.usecase.SearchProductsUseCase
-import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state.HomeEffect
-import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state.HomeEvent
+import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.effect.HomeEffect
+import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.event.HomeEvent
 import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state.HomeState
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

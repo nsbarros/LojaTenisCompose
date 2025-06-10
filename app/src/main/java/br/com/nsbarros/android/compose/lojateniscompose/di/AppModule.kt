@@ -1,6 +1,5 @@
 package br.com.nsbarros.android.compose.lojateniscompose.di
 
-import androidx.lifecycle.SavedStateHandle
 import br.com.nsbarros.android.compose.lojateniscompose.data.repository.ProductRepositoryImpl
 import br.com.nsbarros.android.compose.lojateniscompose.domain.repository.ProductRepository
 import br.com.nsbarros.android.compose.lojateniscompose.domain.usecase.GetProductByIdUseCase
@@ -8,7 +7,7 @@ import br.com.nsbarros.android.compose.lojateniscompose.domain.usecase.GetProduc
 import br.com.nsbarros.android.compose.lojateniscompose.domain.usecase.GetProductsUseCase
 import br.com.nsbarros.android.compose.lojateniscompose.domain.usecase.SearchProductsUseCase
 import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.viewmodel.HomeViewModel
-import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.productdetail.ProductDetailViewModel
+import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.productdetail.viewmodel.ProductDetailViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -33,10 +32,10 @@ val appModule = module {
     }
 
     // ViewModel da tela de detalhes (usa SavedStateHandle)
-    viewModel { (savedStateHandle: SavedStateHandle) ->
+    viewModel { (productId: String) ->
         ProductDetailViewModel(
-            getProductByIdUseCase = get(),
-            savedStateHandle = savedStateHandle
+            productId = productId,
+            getProductByIdUseCase = get()
         )
     }
 }

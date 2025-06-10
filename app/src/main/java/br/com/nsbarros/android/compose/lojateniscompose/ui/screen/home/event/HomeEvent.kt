@@ -1,4 +1,4 @@
-package br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state
+package br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.event
 
 import br.com.nsbarros.android.compose.lojateniscompose.domain.model.Product
 

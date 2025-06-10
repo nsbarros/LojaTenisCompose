@@ -1,25 +1,35 @@
 package br.com.nsbarros.android.compose.lojateniscompose.ui.screen.productdetail
 
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
 import br.com.nsbarros.android.compose.lojateniscompose.domain.model.Product
+import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.productdetail.state.ProductDetailState
 
 @Preview(showBackground = true)
 @Composable
-fun ProductDetailPreview() {
+fun ProductDetailScreenPreview() {
     val fakeProduct = Product(
         id = "1",
-        name = "Tênis Esportivo",
-        price = 299.99,
-        imageUrl = "https://via.placeholder.com/300",
-        category = "Esportes",
-        description = "Tênis confortável, leve e com excelente amortecimento para atividades físicas.",
-        rating = 4.7,
-        isFavorite = false
+        name = "Tênis de Teste",
+        description = "Produto usado apenas no Preview",
+        price = 199.99,
+        imageUrl = "https://picsum.photos/200",
+        rating = 4.5,
+        isFavorite = false,
+        category = "Todos"
+    )
+
+    val fakeState = ProductDetailState(
+        product = fakeProduct,
+        showSnackbar = false
     )
 
     ProductDetailScreen(
-        product = fakeProduct,
-        onBack = {}
+        state = fakeState,
+        onEvent = {},
+        onBack = {},
+        snackbarHostState = remember { SnackbarHostState() }
     )
 }
