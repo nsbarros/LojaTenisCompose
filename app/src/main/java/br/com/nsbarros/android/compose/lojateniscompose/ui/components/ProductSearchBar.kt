@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
@@ -75,8 +74,10 @@ fun ProductSearchBar(
                 contentDescription = "Buscar",
                 tint = Color.White,
                 modifier = Modifier
-                    .background(Primary, CircleShape)
+                    .background(Primary, RoundedCornerShape(100))
+                    .height(50.dp)
                     .padding(8.dp)
+
             )
         }
     }

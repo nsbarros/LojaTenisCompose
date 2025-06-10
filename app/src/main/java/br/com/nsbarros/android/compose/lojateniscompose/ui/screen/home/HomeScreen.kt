@@ -8,6 +8,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -17,6 +18,10 @@ import br.com.nsbarros.android.compose.lojateniscompose.ui.components.ProductGri
 import br.com.nsbarros.android.compose.lojateniscompose.ui.components.ProductSearchBar
 import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state.HomeEvent
 import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state.HomeState
+import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.BackgroundLight
+import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.Primary
+import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.Secondary
+import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.WhiteText
 
 @Composable
 fun HomeScreen(
@@ -25,24 +30,47 @@ fun HomeScreen(
 ) {
     Scaffold(
         bottomBar = {
-            NavigationBar {
+            NavigationBar(
+                containerColor = BackgroundLight
+            ) {
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.Home, contentDescription = null) },
                     selected = true,
-                    onClick = {},
-                    label = { Text("Home") }
+                    onClick = { /* Navegar */ },
+                    label = { Text("Home") },
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = Primary,
+                        selectedTextColor = Primary,
+                        unselectedIconColor = Secondary,
+                        unselectedTextColor = Secondary,
+                        indicatorColor = BackgroundLight
+                    )
                 )
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.ShoppingCart, contentDescription = null) },
                     selected = false,
-                    onClick = {},
-                    label = { Text("Carrinho") }
+                    onClick = { /* Navegar */ },
+                    label = { Text("Carrinho") },
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = Primary,
+                        selectedTextColor = Primary,
+                        unselectedIconColor = Secondary,
+                        unselectedTextColor = Secondary,
+                        indicatorColor = BackgroundLight
+                    )
                 )
                 NavigationBarItem(
                     icon = { Icon(Icons.Default.Person, contentDescription = null) },
                     selected = false,
-                    onClick = {},
-                    label = { Text("Perfil") }
+                    onClick = { /* Navegar */ },
+                    label = { Text("Perfil") },
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = Primary,
+                        selectedTextColor = Primary,
+                        unselectedIconColor = Secondary,
+                        unselectedTextColor = Secondary,
+                        indicatorColor = BackgroundLight
+                    )
                 )
             }
         }
@@ -60,7 +88,9 @@ fun HomeScreen(
                 text = "Olá, ${state.userName}",
                 fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
                 fontSize = 18.sp,
-                modifier = Modifier.padding(top = 8.dp)
+                modifier = Modifier
+                    .padding(top = 8.dp)
+                    .align(Alignment.CenterHorizontally)
             )
 
             Spacer(modifier = Modifier.height(16.dp))
