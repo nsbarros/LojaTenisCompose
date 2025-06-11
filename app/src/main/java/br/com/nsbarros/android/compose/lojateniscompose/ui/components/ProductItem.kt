@@ -20,6 +20,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import br.com.nsbarros.android.compose.lojateniscompose.R
 import br.com.nsbarros.android.compose.lojateniscompose.domain.model.Product
+import br.com.nsbarros.android.compose.lojateniscompose.extensions.toBrazilianCurrency
 import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.BlackText
 import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.Secondary
 import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.SurfaceLight
@@ -58,7 +59,7 @@ fun ProductItem(
             overflow = TextOverflow.Ellipsis
         )
         Text(
-            text = product.price.toString(),
+            text = product.price.toBrazilianCurrency(),
             style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold),
             color = BlackText
         )

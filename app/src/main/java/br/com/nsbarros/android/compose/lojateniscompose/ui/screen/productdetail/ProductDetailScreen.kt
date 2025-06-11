@@ -40,6 +40,7 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import br.com.nsbarros.android.compose.lojateniscompose.extensions.toBrazilianCurrency
 import br.com.nsbarros.android.compose.lojateniscompose.ui.components.AddToCartBar
 import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.productdetail.event.ProductDetailEvent
 import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.productdetail.state.ProductDetailState
@@ -73,7 +74,6 @@ fun ProductDetailScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(Color.White)
-                    .navigationBarsPadding()
             ) {
                 AddToCartBar(onAddToCart = {
                     onEvent(ProductDetailEvent.AddToCart)
@@ -165,7 +165,7 @@ fun ProductDetailScreen(
 
             Text(
                 modifier = Modifier.padding(horizontal = 16.dp),
-                text = "R$ ${product.price}",
+                text = product.price.toBrazilianCurrency(),
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
                 color = BlackText
             )
