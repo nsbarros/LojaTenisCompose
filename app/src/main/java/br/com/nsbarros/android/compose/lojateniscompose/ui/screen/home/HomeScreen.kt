@@ -34,7 +34,7 @@ fun HomeScreen(
             .background(Color.White)
             .padding(horizontal = 16.dp)
     ) {
-        Spacer(modifier = Modifier.height(40.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         Text(
             text = "Olá, ${state.userName}",
@@ -45,14 +45,14 @@ fun HomeScreen(
                 .align(Alignment.CenterHorizontally)
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         ProductSearchBar(
             query = state.searchQuery,
             onQueryChanged = { onEvent(HomeEvent.OnSearchChanged(it)) }
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         CategoryChips(
             categories = state.categories,
@@ -60,7 +60,7 @@ fun HomeScreen(
             onCategorySelected = { onEvent(HomeEvent.OnCategorySelected(it)) }
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(8.dp))
 
         if (state.products.isEmpty()) {
             Box(

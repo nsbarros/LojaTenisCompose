@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.BackgroundLight
+import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.BlackText
 
 @Composable
 fun ProfileScreen() {
@@ -23,7 +24,9 @@ fun ProfileScreen() {
                 .padding(padding),
             contentAlignment = Alignment.Center
         ) {
-            Text(text = "Perfil", style = MaterialTheme.typography.titleLarge)
+            Text(text = "Perfil",
+                color = BlackText,
+                style = MaterialTheme.typography.titleLarge)
         }
     }
 }

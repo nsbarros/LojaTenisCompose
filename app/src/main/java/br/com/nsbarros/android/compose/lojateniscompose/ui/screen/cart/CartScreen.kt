@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.BackgroundLight
+import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.BlackText
 
 
 @Composable
@@ -24,7 +25,9 @@ fun CartScreen() {
                 .padding(padding),
             contentAlignment = Alignment.Center
         ) {
-            Text(text = "Carrinho", style = MaterialTheme.typography.titleLarge)
+            Text(text = "Carrinho",
+                color = BlackText,
+                style = MaterialTheme.typography.titleLarge)
         }
     }
 }

@@ -1,5 +1,6 @@
 package br.com.nsbarros.android.compose.lojateniscompose.ui.screen.productdetail
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -14,7 +16,9 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
@@ -44,6 +48,7 @@ import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.Secondary
 import coil3.compose.AsyncImage
 
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun ProductDetailScreen(
     state: ProductDetailState,
@@ -55,12 +60,18 @@ fun ProductDetailScreen(
     val configuration = LocalConfiguration.current
     val screenHeight = configuration.screenHeightDp.dp
     val imageHeight = screenHeight * 0.5f
+    val scrollState = rememberScrollState()
 
     Scaffold(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White),
+        contentWindowInsets = WindowInsets(0),
         snackbarHost = { SnackbarHost(snackbarHostState) },
         bottomBar = {
             Box(
                 modifier = Modifier
+                    .fillMaxWidth()
                     .background(Color.White)
                     .navigationBarsPadding()
             ) {
@@ -69,11 +80,12 @@ fun ProductDetailScreen(
                 })
             }
         }
-    ) { padding ->
+    ) { innerPadding ->
         Column(
             modifier = Modifier
-                .padding(padding)
                 .fillMaxSize()
+                .padding(innerPadding)
+                .verticalScroll(scrollState)
                 .background(Color.White)
         ) {
             AsyncImage(
@@ -157,6 +169,8 @@ fun ProductDetailScreen(
                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
                 color = BlackText
             )
+
+            Spacer(modifier = Modifier.height(32.dp))
         }
     }
 }
