@@ -1,12 +1,14 @@
 package br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.ShoppingCart
-import androidx.compose.material3.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,8 +21,6 @@ import br.com.nsbarros.android.compose.lojateniscompose.ui.components.ProductGri
 import br.com.nsbarros.android.compose.lojateniscompose.ui.components.ProductSearchBar
 import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.event.HomeEvent
 import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.state.HomeState
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.BackgroundLight
-import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.Primary
 import br.com.nsbarros.android.compose.lojateniscompose.ui.theme.Secondary
 
 @Composable
@@ -28,107 +28,58 @@ fun HomeScreen(
     state: HomeState,
     onEvent: (HomeEvent) -> Unit
 ) {
-    Scaffold(
-        bottomBar = {
-            NavigationBar(
-                containerColor = BackgroundLight
-            ) {
-                NavigationBarItem(
-                    icon = { Icon(Icons.Default.Home, contentDescription = null) },
-                    selected = true,
-                    onClick = {  },
-                    label = { Text("Home") },
-                    colors = NavigationBarItemDefaults.colors(
-                        selectedIconColor = Primary,
-                        selectedTextColor = Primary,
-                        unselectedIconColor = Secondary,
-                        unselectedTextColor = Secondary,
-                        indicatorColor = BackgroundLight
-                    )
-                )
-                NavigationBarItem(
-                    icon = { Icon(Icons.Default.ShoppingCart, contentDescription = null) },
-                    selected = false,
-                    onClick = { /* Navegar */ },
-                    label = { Text("Carrinho") },
-                    colors = NavigationBarItemDefaults.colors(
-                        selectedIconColor = Primary,
-                        selectedTextColor = Primary,
-                        unselectedIconColor = Secondary,
-                        unselectedTextColor = Secondary,
-                        indicatorColor = BackgroundLight
-                    )
-                )
-                NavigationBarItem(
-                    icon = { Icon(Icons.Default.Person, contentDescription = null) },
-                    selected = false,
-                    onClick = { /* Navegar */ },
-                    label = { Text("Perfil") },
-                    colors = NavigationBarItemDefaults.colors(
-                        selectedIconColor = Primary,
-                        selectedTextColor = Primary,
-                        unselectedIconColor = Secondary,
-                        unselectedTextColor = Secondary,
-                        indicatorColor = BackgroundLight
-                    )
-                )
-            }
-        }
-    ) { padding ->
-        Column(
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
+            .padding(horizontal = 16.dp)
+    ) {
+        Spacer(modifier = Modifier.height(40.dp))
+
+        Text(
+            text = "Olá, ${state.userName}",
+            fontWeight = FontWeight.Bold,
+            fontSize = 18.sp,
             modifier = Modifier
-                .padding(padding)
-                .fillMaxSize()
-                .background(Color.White)
-                .padding(horizontal = 16.dp)
-        ) {
-            Spacer(modifier = Modifier.height(40.dp))
+                .padding(top = 8.dp)
+                .align(Alignment.CenterHorizontally)
+        )
 
-            Text(
-                text = "Olá, ${state.userName}",
-                fontWeight = FontWeight.Bold,
-                fontSize = 18.sp,
+        Spacer(modifier = Modifier.height(16.dp))
+
+        ProductSearchBar(
+            query = state.searchQuery,
+            onQueryChanged = { onEvent(HomeEvent.OnSearchChanged(it)) }
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        CategoryChips(
+            categories = state.categories,
+            selectedCategory = state.selectedCategory,
+            onCategorySelected = { onEvent(HomeEvent.OnCategorySelected(it)) }
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        if (state.products.isEmpty()) {
+            Box(
                 modifier = Modifier
-                    .padding(top = 8.dp)
-                    .align(Alignment.CenterHorizontally)
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            ProductSearchBar(
-                query = state.searchQuery,
-                onQueryChanged = { onEvent(HomeEvent.OnSearchChanged(it)) }
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            CategoryChips(
-                categories = state.categories,
-                selectedCategory = state.selectedCategory,
-                onCategorySelected = { onEvent(HomeEvent.OnCategorySelected(it)) }
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            if (state.products.isEmpty()) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(top = 64.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = "Nada para exibir em \"${state.selectedCategory}\"",
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = Secondary
-                    )
-                }
-            } else {
-                ProductGrid(
-                    products = state.products,
-                    onProductClick = { onEvent(HomeEvent.OnProductClicked(it)) }
+                    .fillMaxSize()
+                    .padding(top = 64.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    text = "Nada para exibir em \"${state.selectedCategory}\"",
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = Secondary
                 )
             }
+        } else {
+            ProductGrid(
+                products = state.products,
+                onProductClick = { onEvent(HomeEvent.OnProductClicked(it)) }
+            )
         }
     }
 }
