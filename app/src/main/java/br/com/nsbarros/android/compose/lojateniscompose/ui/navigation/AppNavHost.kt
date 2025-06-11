@@ -22,6 +22,7 @@ import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.home.viewmodel
 import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.productdetail.ProductDetailScreen
 import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.productdetail.event.ProductDetailEvent
 import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.productdetail.viewmodel.ProductDetailViewModel
+import br.com.nsbarros.android.compose.lojateniscompose.ui.screen.profile.ProfileScreen
 import org.koin.androidx.compose.koinViewModel
 import org.koin.core.parameter.parametersOf
 
@@ -72,6 +73,10 @@ fun AppNavHost(viewModel: HomeViewModel) {
 
             composable("cart") {
                 CartScreen()
+            }
+
+            composable("profile") {
+                ProfileScreen()
             }
 
             composable(
